@@ -32,3 +32,4 @@ def email():
     num = 1 if not request.args.get("num") else int(request.args.get("num"))
     return api_return("OK",data=gen_email(num,len))
 
+# lxf-test-20210907
