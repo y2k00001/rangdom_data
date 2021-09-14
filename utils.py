@@ -77,6 +77,19 @@ def gen_email(num=1, len=8, list_email=None):
 
     return email_list
 
+def gen_unique_id(num=1):
+    """
+    根据雪花算法生成分布式唯一ID，欢迎来搞测试
+    :param num:
+    :return:
+    """
+    ids =[]
+    worker = IdWorker(1,2,0)
+    for x in range(num):
+        id = worker.get_id()
+        ids.append(id)
+    return ids
+
 def gen_name(num):
     '''
     生成中文姓名

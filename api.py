@@ -32,3 +32,9 @@ def email():
     num = 1 if not request.args.get("num") else int(request.args.get("num"))
     return api_return("OK",data=gen_email(num,len))
 
+@random.route('/id',methods=['GET'])
+def email():
+    len = 8 if not request.args.get("len") else int(request.args.get("len"))
+    num = 1 if not request.args.get("num") else int(request.args.get("num"))
+    return api_return("OK",data=gen_email(num,len))
+
