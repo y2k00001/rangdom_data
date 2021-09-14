@@ -6,22 +6,44 @@ import random
 import string
 
 
+# 获取指定长度随机数
+def get_random_num(length=8):
+    random_num = ''
+    for i in range(length):
+        random_num = random_num + str(random.randint(0, 9))
+    return random_num
 
-def password(length=8,num=1):
+def password(length=8, num=1):
     '''
     生成秒
     :param length: 密码长度
     :param num: 密码数量
     :return: 密码列表
     '''
-    password_list=[]
+    password_list = []
     for x in range(num):
         pw = str()
-        characters = "abcdefghijklmnopqrstuvwxyz" +"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+ "1234567890"+"!@#$%^&*-_"
+        characters = "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "1234567890" + "!@#$%^&*-_"
         for i in range(length):
-            pw = pw +  random.choice(characters)
+            pw = pw + random.choice(characters)
         password_list.append(pw)
-    return  password_list
+    return password_list
+
+# 随机生成一个手机号码
+def get_tle_phone(phone_list=[]):
+    second = random.choice([3, 4, 5, 7, 8])  # 第二位值，从此列表随机生成
+    third = {
+        3: random.randint(0, 9),
+        4: random.choice([5, 7]),
+        5: random.choice([0, 1, 2, 3, 5, 6, 7, 8, 9]),
+        7: random.choice([6, 7, 8]),
+        8: random.randint(0, 9)
+    }[second]  # 根据second的值，来生成第3位的值
+    phone_number = str(1) + str(second) + str(third) + get_random_num(8)  # 四组字符相加，生成手机号
+    counts = phone_list.count(phone_number)
+    if counts:
+        return get_tle_phone(phone_list)
+    return phone_number
 
 def telphone(num=1):
     '''
@@ -29,22 +51,9 @@ def telphone(num=1):
     :param num: 电话号码数量
     :return: 电话号码列表
     '''
-    second = random.choice([3,4,5,7,8])#第二位值，从此列表随机生成
-    third = {
-        3:random.randint(0,9),
-        4:random.choice([5,7]),
-        5:random.choice([0,1,2,3,5,6,7,8,9]),
-        7:random.choice([6,7,8]),
-        8:random.randint(0,9)
-    }[second]#根据second的值，来生成第3位的值
     phone_list=[]
     for x in range(num):
-        behind = ''#定义个空字符串
-        for i in range(8):
-            behind = behind + str(random.randint(0,9))#8位数字中的每一位从0-9中生成，8次循环后，字符串相加成为8位数
-        phone_number = str(1) + str(second) + str(third) + behind#四组字符相加，生成手机号
-        phone_list.append(phone_number)
-
+        phone_list.append(get_tle_phone(phone_list))
     return phone_list
 
 
