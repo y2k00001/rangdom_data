@@ -95,7 +95,7 @@ def gen_unique_id(num=1):
     ids =[]
     worker = IdWorker(1,2,0)
     for x in range(num):
-        id = worker.get_id()
+        id = str(worker.get_id())
         ids.append(id)
     return ids
 
