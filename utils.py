@@ -4,7 +4,7 @@
 import csv
 import random
 import string
-
+from idworker import IdWorker
 
 # 获取指定长度随机数
 def get_random_num(length=8):
