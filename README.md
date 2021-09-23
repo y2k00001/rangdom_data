@@ -17,7 +17,8 @@ web框架：flask
 1.git clone https://github.com/y2k00001/rangdom_data.git
 2.python main.py
 ```
-
+#### 在线体验
+演示地址：http://random.neo-cloud.cn/id?num=100
 
 #### 使用说明
 
