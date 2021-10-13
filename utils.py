@@ -99,6 +99,31 @@ def gen_unique_id(num=1):
         ids.append(id)
     return ids
 
+def gen_plate_no(num):
+    '''
+    生成随机车牌号
+    :param num:数量
+    :return:车牌号列表
+    '''
+    plat_numbers = []
+    char0 = '京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽赣粤青藏川宁琼'
+    char1 = 'ABCDEFGHJKLMNPQRSTUVWXYZ'  # 车牌号中没有I和O，可自行百度
+    char2 = '1234567890'
+    len0 = len(char0) - 1
+    len1 = len(char1) - 1
+    len2 = len(char2) - 1
+    for x in range(num):
+        code = ''
+        index0 = random.randint(1, len0)
+        index1 = random.randint(1, len1)
+        code += char0[index0]
+        code += char1[index1]
+        for i in range(1, 6):
+            index2 = random.randint(1, len2)
+            code += char2[index2]
+        plat_numbers.append(code)
+    return plat_numbers
+
 def gen_name(num):
     '''
     生成中文姓名
@@ -165,7 +190,5 @@ def popular():
     else:
         name+= random.choice(single)
     return (name)
-
-
 
 

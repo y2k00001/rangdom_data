@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 
 from response import api_return
-from utils import password, telphone, gen_name, gen_email, gen_unique_id
+from utils import password, telphone, gen_name, gen_email, gen_unique_id,gen_plate_no
 
 random = Blueprint("random", __name__)
 
@@ -31,6 +31,12 @@ def email():
     len = 8 if not request.args.get("len") else int(request.args.get("len"))
     num = 1 if not request.args.get("num") else int(request.args.get("num"))
     return api_return("OK",data=gen_email(num,len))
+
+
+@random.route('/random/plate_num',methods=['GET'])
+def plate():
+    num = 1 if not request.args.get("num") else int(request.args.get("num"))
+    return api_return("OK",data=gen_plate_no(num))
 
 @random.route('/id',methods=['GET'])
 def  unique_id():
