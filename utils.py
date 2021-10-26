@@ -6,8 +6,13 @@ import random
 import string
 from idworker import IdWorker
 
-# 获取指定长度随机数
+
 def get_random_num(length=8):
+    '''
+    # 获取指定长度随机数
+    :param length:
+    :return:
+    '''
     random_num = ''
     for i in range(length):
         random_num = random_num + str(random.randint(0, 9))
@@ -15,7 +20,7 @@ def get_random_num(length=8):
 
 def password(length=8, num=1):
     '''
-    生成秒
+    生成密码
     :param length: 密码长度
     :param num: 密码数量
     :return: 密码列表
@@ -29,8 +34,12 @@ def password(length=8, num=1):
         password_list.append(pw)
     return password_list
 
-# 随机生成一个手机号码
 def get_tle_phone(phone_list=[]):
+    '''
+    # 随机生成一个手机号码
+    :param phone_list:
+    :return:
+    '''
     second = random.choice([3, 4, 5, 7, 8])  # 第二位值，从此列表随机生成
     third = {
         3: random.randint(0, 9),
@@ -55,7 +64,6 @@ def telphone(num=1):
     for x in range(num):
         phone_list.append(get_tle_phone(phone_list))
     return phone_list
-
 
 def gen_email(num=1, len=8, list_email=None):
     '''
@@ -123,6 +131,29 @@ def gen_plate_no(num):
             code += char2[index2]
         plat_numbers.append(code)
     return plat_numbers
+
+def gen_lucky(num):
+    '''
+    生成大乐透、双色球随机号码
+    :param num:
+    :return:
+    '''
+    lucky_numbers = {'daletou':[],'shuangseqiu':[]}
+    for x in range(num):
+        daletou = get_resultStr(33, 6)+' '+ get_resultStr(16, 1)
+        shuangseqiu = get_resultStr(35, 5)+' '+ get_resultStr(12, 2)
+        lucky_numbers['daletou'].append(daletou)
+        lucky_numbers['shuangseqiu'].append(shuangseqiu)
+    return lucky_numbers
+def get_resultStr(totalCount, resultCount):
+  elements = [x + 1 for x in range(totalCount)]
+  retStr = ''
+  for i in range(resultCount):
+    res = elements[random.randint(0,len(elements)-1)]
+    elements.remove(res)
+    retStr += ' ' + str(res)
+  return retStr
+
 
 def gen_name(num):
     '''
