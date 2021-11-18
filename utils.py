@@ -4,6 +4,9 @@
 import csv
 import random
 import string
+
+from faker import Faker
+
 from idworker import IdWorker
 
 
@@ -131,6 +134,14 @@ def gen_plate_no(num):
             code += char2[index2]
         plat_numbers.append(code)
     return plat_numbers
+
+def gen_id_num(num):
+    id_nums = []
+    fake = Faker("zh_CN")
+    for x in range(num):
+        id_nums.append(fake.ssn())
+    return id_nums
+
 
 def gen_lucky(num):
     '''
