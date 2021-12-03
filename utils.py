@@ -136,11 +136,23 @@ def gen_plate_no(num):
     return plat_numbers
 
 def gen_id_num(num):
+    '''
+    生成中国身份证
+    :param num:
+    :return:
+    '''
     id_nums = []
     fake = Faker("zh_CN")
     for x in range(num):
         id_nums.append(fake.ssn())
     return id_nums
+
+def gen_com(num):
+    com_list = []
+    fake = Faker("zh_CN")
+    for x in range(num):
+        com_list.append(fake.company())
+    return com_list
 
 
 def gen_lucky(num):
