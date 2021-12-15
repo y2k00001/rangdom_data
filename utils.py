@@ -148,11 +148,28 @@ def gen_id_num(num):
     return id_nums
 
 def gen_com(num):
+    '''
+    生成公司名称
+    :param num:
+    :return:
+    '''
     com_list = []
     fake = Faker("zh_CN")
     for x in range(num):
         com_list.append(fake.company())
     return com_list
+
+def gen_url(num):
+    '''
+    生成url网址
+    :param num:
+    :return:
+    '''
+    url_list = []
+    fake = Faker("zh_CN")
+    for x in range(num):
+        url_list.append(fake.url())
+    return url_list
 
 
 def gen_lucky(num):
