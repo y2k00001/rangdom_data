@@ -171,6 +171,17 @@ def gen_url(num):
         url_list.append(fake.url())
     return url_list
 
+def gen_mac(num):
+    '''
+    生成mac地址
+    :param num:
+    :return:
+    '''
+    mac_list = []
+    fake = Faker("zh_CN")
+    for x in range(num):
+        mac_list.append(fake.mac_address())
+    return mac_list
 
 def gen_lucky(num):
     '''
