@@ -31,7 +31,7 @@ web框架：flask
 2.python main.py
 ```
 #### 在线体验
-演示地址：http://random.neo-cloud.cn/id?num=100
+演示地址：https://random.neo-ai.cn/id?num=10
 
 #### 使用说明
 
