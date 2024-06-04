@@ -59,7 +59,7 @@ def url():
     return api_return("OK",data=gen_url(num))
 
 @random.route('/random/mac',methods=['GET'])
-def url():
+def mac():
     num = 1 if not request.args.get("num") else int(request.args.get("num"))
     return api_return("OK",data=gen_mac(num))
 
